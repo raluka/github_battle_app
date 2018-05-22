@@ -1,31 +1,29 @@
 var React = require('react');
 var PropTypes = require('prop-types');
 
-class SelectLanguage extends React.Component {
-  render () {
-    var languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
-    return (
-      <ul className='languages'>
-        {/*<p>Selected Language: {this.state.selectedLanguage}</p>*/}
-        {languages.map(function (lang) {
-          return (
-            <li
-              style={lang === this.props.selectedLanguage ? {color: '#d0021b'} : null }
-              onClick={this.props.onSelect.bind(null, lang)}
-              key={lang}>
-              {lang}
-            </li>
-          )
-        }, this)}
-      </ul>
-    )
-  }
+// stateless functional component - cause it doesn't have any state, it is just a function returning some UI
+function SelectLanguage (props) {
+  var languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
+  return (
+    <ul className='languages'>
+      {languages.map(function (lang) {
+        return (
+          <li
+            style={lang === props.selectedLanguage ? {color: '#d0021b'} : null }
+            onClick={props.onSelect.bind(null, lang)}
+            key={lang}>
+            {lang}
+          </li>
+        )
+      })}
+    </ul>
+  )
 }
 
 SelectLanguage.propTypes = {
   selectedLanguage: PropTypes.string.isRequired,
   onSelect: PropTypes.func.isRequired,
-}
+};
 
 class Popular extends React.Component {
   constructor (props) {
