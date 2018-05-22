@@ -2,6 +2,11 @@ body {
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: #d0021b;
+}
+
 ul {
   padding: 0;
 }
@@ -49,4 +54,16 @@ li {
 .avatar {
   width: 150px;
   border-radius: 50%;
+}
+
+.nav {
+  display: flex;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.nav li {
+  margin-right: 15px;
 }
